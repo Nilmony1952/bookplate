@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bookplate</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Bookplate</h1>
+    <nav>
+      <button id="tab-search" class="tab active">Search</button>
+      <button id="tab-mine" class="tab">My books</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Screen 1: search Open Library -->
+    <section id="screen-search">
+      <form id="search-form">
+        <input id="search-input" type="search" placeholder="Search a title or author" required>
+        <button type="submit">Search</button>
+      </form>
+      <p id="status"></p>
+      <div id="results" class="grid"></div>
+    </section>
+
+    <!-- Screen 2: books you saved -->
+    <section id="screen-mine" hidden>
+      <div id="mine" class="grid"></div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

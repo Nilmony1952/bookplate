@@ -1,0 +1,135 @@
+/* Bookplate: colorful theme.
+   Change the colors in this block and the whole app changes. */
+:root {
+  --bg: #f3f0ff;          /* page background (soft lavender) */
+  --card: #ffffff;
+  --text: #1f1b3a;
+  --muted: #62608a;
+  --accent: #5b3df5;      /* main purple */
+  --accent-2: #e0267c;    /* pink */
+  --c1: #5b3df5;          /* the five card colors */
+  --c2: #e0267c;
+  --c3: #f59e0b;
+  --c4: #0ea5a4;
+  --c5: #2f80ed;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* Header with a purple-to-pink gradient */
+header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 22px 16px;
+  margin-bottom: 20px;
+  background: linear-gradient(120deg, var(--accent), var(--accent-2));
+  color: #fff;
+}
+
+h1 { margin: 0; font-size: 1.8rem; letter-spacing: -0.02em; }
+
+nav { display: flex; gap: 8px; }
+
+.tab {
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  background: transparent;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+}
+.tab:hover { background: rgba(255, 255, 255, 0.2); }
+.tab.active { background: #fff; color: var(--accent); border-color: #fff; }
+
+main { padding: 0 16px 40px; max-width: 1000px; margin: 0 auto; }
+
+/* Search bar */
+#search-form { display: flex; gap: 8px; margin-bottom: 12px; }
+#search-input {
+  flex: 1;
+  min-width: 0;
+  padding: 12px 14px;
+  font-size: 1rem;
+  border: 2px solid #cfc7ff;
+  border-radius: 10px;
+  background: #fff;
+}
+#search-input:focus { outline: none; border-color: var(--accent); }
+
+button { cursor: pointer; font: inherit; }
+
+#search-form button {
+  border: 0;
+  border-radius: 10px;
+  padding: 0 22px;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(120deg, var(--accent), var(--accent-2));
+}
+
+#status { color: var(--muted); min-height: 1.4em; }
+
+/* Book cards */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 20px;
+}
+
+.book {
+  --c: var(--c1);
+  background: var(--card);
+  border-radius: 12px;
+  border-top: 6px solid var(--c);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  box-shadow: 0 6px 16px rgba(60, 40, 160, 0.12);
+}
+/* Cards take turns using the five colors */
+.book:nth-child(5n + 2) { --c: var(--c2); }
+.book:nth-child(5n + 3) { --c: var(--c3); }
+.book:nth-child(5n + 4) { --c: var(--c4); }
+.book:nth-child(5n + 5) { --c: var(--c5); }
+
+.book img {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  border-radius: 6px;
+  background: linear-gradient(160deg, var(--c), #1f1b3a); /* shows if a book has no cover */
+}
+.book h3 { margin: 0; font-size: 0.95rem; }
+.book p { margin: 0; color: var(--muted); font-size: 0.85rem; }
+
+.book select {
+  font-size: 0.85rem;
+  padding: 6px;
+  border: 2px solid var(--c);
+  border-radius: 6px;
+  background: #fff;
+}
+.book button {
+  font-size: 0.85rem;
+  padding: 8px;
+  border: 2px solid var(--c);
+  border-radius: 6px;
+  background: #fff;
+  color: var(--text);
+  font-weight: 600;
+}
+.book button.primary { background: var(--c); color: #fff; border-color: var(--c); }
+.book button:hover { filter: brightness(0.93); }
