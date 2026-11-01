@@ -3,7 +3,7 @@
 A book rating and reading-log app, like Letterboxd for books.
 Search real books, rate them, and keep your own list.
 
-Live demo: add your GitHub Pages link here.
+Live demo: [(https://nilmony1952.github.io/bookplate/)](https://nilmony1952.github.io/bookplate/).
 
 ## What it does now
 - Search any book using the free Open Library API
